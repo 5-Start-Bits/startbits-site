@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>StartBits — Energía estable para los negocios que mueven a Colombia</title>
+<link rel="icon" type="image/png" href="logo-mark-gold.png">
+<meta name="description" content="StartBits diseña y fabrica en Barranquilla soluciones eléctricas inteligentes pensadas para la red real de Colombia: StartShield, StartByte, StartWatt y StartDust.">
+
+<meta property="og:title" content="StartBits — Energía estable para los negocios que mueven a Colombia">
+<meta property="og:description" content="Protección eléctrica y control inteligente, diseñados y fabricados en Barranquilla para la red eléctrica colombiana.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://startbits.co">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --navy: #0F2438;
+    --navy-deep: #0A1B2C;
+    --cream: #F7F4EE;
+    --paper: #FFFFFF;
+    --orange: #F9A33D;
+    --teal: #3DCFD7;
+    --ink: #14202C;
+    --slate: #5C6B78;
+    --slate-light: #93A2AE;
+    --line: rgba(15,36,56,0.12);
+    --line-dark: rgba(255,255,255,0.14);
+    --max: 1080px;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    font-family:'Inter', sans-serif;
+    color:var(--ink);
+    background:var(--paper);
+    -webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%; display:block;}
+  a{color:inherit;}
+
+  h1,h2,h3,.display{
+    font-family:'Sora', sans-serif;
+    margin:0;
+    line-height:1.1;
+    letter-spacing:-0.01em;
+  }
+
+  .wrap{
+    max-width:var(--max);
+    margin:0 auto;
+    padding:0 28px;
+  }
+
+  .mono-label{
+    font-family:'JetBrains Mono', monospace;
+    font-size:12.5px;
+    letter-spacing:0.02em;
+    color:var(--orange);
+  }
+
+  /* ---------- Header ---------- */
+  header{
+    position:sticky; top:0; z-index:40;
+    background:rgba(15,36,56,0.92);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line-dark);
+  }
+  .nav{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:16px 28px;
+    max-width:var(--max);
+    margin:0 auto;
+  }
+  .brand{
+    display:flex; align-items:center; gap:10px;
+    text-decoration:none;
+    color:#fff;
+    font-family:'Sora', sans-serif;
+    font-weight:700;
+    font-size:17px;
+    letter-spacing:0.01em;
+  }
+  .brand-mark{width:26px; height:26px; object-fit:contain;}
+  .navlinks{
+    display:flex; gap:30px;
+    list-style:none; margin:0; padding:0;
+  }
+  .navlinks a{
+    text-decoration:none;
+    color:#C7D2DA;
+    font-size:14.5px;
+    font-weight:500;
+    transition:color .15s ease;
+  }
+  .navlinks a:hover{color:#fff;}
+  .nav-cta{
+    display:inline-flex;
+    padding:9px 18px;
+    background:var(--orange);
+    color:var(--navy-deep);
+    font-weight:600;
+    font-size:14px;
+    text-decoration:none;
+    border-radius:3px;
+  }
+  .menu-btn{display:none;}
+
+  /* ---------- Hero ---------- */
+  .hero{
+    background:
+      radial-gradient(900px 500px at 85% -10%, rgba(61,207,215,0.10), transparent 60%),
+      var(--navy);
+    color:#fff;
+    padding:96px 0 76px;
+    position:relative;
+    overflow:hidden;
+  }
+  .hero .wrap{position:relative; z-index:2;}
+  .eyebrow{
+    display:flex; align-items:center; gap:8px;
+    font-family:'JetBrains Mono', monospace;
+    font-size:13px;
+    color:var(--orange);
+    margin-bottom:22px;
+  }
+  .eyebrow::before{
+    content:"";
+    width:6px; height:6px;
+    background:var(--orange);
+    border-radius:50%;
+  }
+  .hero h1{
+    font-size:clamp(34px, 5.6vw, 58px);
+    max-width:760px;
+    font-weight:800;
+    color:#fff;
+  }
+  .hero p.lead{
+    font-family:'Inter', sans-serif;
+    font-size:18px;
+    line-height:1.6;
+    color:#B7C4CE;
+    max-width:560px;
+    margin:26px 0 38px;
+  }
+  .hero-ctas{display:flex; gap:14px; flex-wrap:wrap;}
+  .btn{
+    display:inline-flex; align-items:center; gap:8px;
+    padding:13px 24px;
+    border-radius:3px;
+    font-weight:600;
+    font-size:15px;
+    text-decoration:none;
+    transition:transform .15s ease, opacity .15s ease;
+  }
+  .btn:hover{transform:translateY(-1px);}
+  .btn-primary{background:var(--orange); color:var(--navy-deep);}
+  .btn-ghost{border:1px solid rgba(255,255,255,0.28); color:#fff;}
+
+  .zigzag-divider{
+    margin-top:60px;
+    height:26px;
+    width:100%;
+    max-width:520px;
+  }
+
+  /* ---------- About ---------- */
+  .about{
+    background:var(--cream);
+    padding:90px 0;
+    border-bottom:1px solid var(--line);
+  }
+  .section-head{
+    display:grid;
+    grid-template-columns:1fr 1.5fr;
+    gap:50px;
+    margin-bottom:52px;
+  }
+  .section-head .mono-label{display:block; margin-bottom:14px;}
+  .section-head h2{font-size:clamp(26px,3.4vw,36px); font-weight:700;}
+  .section-head .support{
+    font-size:16.5px; line-height:1.65; color:var(--slate);
+  }
+  .pillars{
+    display:grid;
+    grid-template-columns:repeat(4, 1fr);
+    gap:1px;
+    background:var(--line);
+    border:1px solid var(--line);
+  }
+  .pillar{
+    background:var(--cream);
+    padding:26px 22px;
+  }
+  .pillar .num{
+    font-family:'JetBrains Mono', monospace;
+    font-size:12px;
+    color:var(--teal);
+    display:block;
+    margin-bottom:14px;
+  }
+  .pillar h3{
+    font-size:15.5px;
+    font-weight:600;
+    margin-bottom:8px;
+    line-height:1.35;
+  }
+  .pillar p{
+    font-size:14px;
+    color:var(--slate);
+    line-height:1.55;
+    margin:0;
+  }
+
+  /* ---------- Products ---------- */
+  .products{padding:96px 0; background:var(--paper);}
+  .product-list{
+    display:flex;
+    flex-direction:column;
+  }
+  .product{
+    display:grid;
+    grid-template-columns:0.9fr 1.4fr;
+    gap:48px;
+    padding:52px 0;
+    border-top:1px solid var(--line);
+    align-items:start;
+  }
+  .product:last-child{border-bottom:1px solid var(--line);}
+  .product-meta{position:sticky; top:96px;}
+  .app-icon{
+    width:56px; height:56px;
+    border-radius:14px;
+    margin-bottom:18px;
+    box-shadow:0 4px 14px rgba(15,36,56,0.18);
+  }
+  .line-tag{
+    font-family:'JetBrains Mono', monospace;
+    font-size:12px;
+    color:var(--slate-light);
+    margin-bottom:10px;
+    display:block;
+  }
+  .product h3{
+    font-size:28px;
+    font-weight:700;
+    margin-bottom:8px;
+  }
+  .status-pill{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    font-size:12.5px;
+    font-weight:600;
+    padding:5px 11px;
+    border-radius:20px;
+    margin-top:6px;
+  }
+  .status-pill::before{content:""; width:6px; height:6px; border-radius:50%;}
+  .status-dev{background:rgba(249,163,61,0.14); color:#B26B0F;}
+  .status-dev::before{background:var(--orange);}
+
+  .product-body p.tagline{
+    font-size:19px;
+    font-weight:600;
+    margin-bottom:14px;
+    color:var(--ink);
+  }
+  .product-body p.desc{
+    font-size:15.5px;
+    line-height:1.7;
+    color:var(--slate);
+    margin-bottom:22px;
+    max-width:58ch;
+  }
+  .audience{
+    display:flex; flex-wrap:wrap; gap:8px;
+    margin-bottom:24px;
+  }
+  .audience span{
+    font-size:13px;
+    padding:6px 12px;
+    border:1px solid var(--line);
+    border-radius:20px;
+    color:var(--slate);
+  }
+  .spec-table{
+    width:100%;
+    border-collapse:collapse;
+    font-size:13.5px;
+    margin-top:10px;
+  }
+  .spec-table tr{border-top:1px solid var(--line);}
+  .spec-table td{padding:10px 0;}
+  .spec-table td:first-child{
+    color:var(--slate-light);
+    font-family:'JetBrains Mono', monospace;
+    font-size:11.5px;
+    width:44%;
+    text-transform:uppercase;
+    letter-spacing:0.02em;
+  }
+  .spec-table td:last-child{font-weight:500;}
+
+  .product-photo{
+    margin-top:24px;
+    border-radius:4px;
+    overflow:hidden;
+    border:1px solid var(--line);
+  }
+  .product-photo img{width:100%;}
+  .photo-caption{
+    font-size:12px;
+    color:var(--slate-light);
+    padding:10px 2px 0;
+    line-height:1.5;
+  }
+
+  /* ---------- Services ---------- */
+  .services{padding:96px 0; background:var(--cream); border-top:1px solid var(--line); border-bottom:1px solid var(--line);}
+  .service-cards{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:1px;
+    background:var(--line);
+    border:1px solid var(--line);
+    margin-bottom:44px;
+  }
+  .service-card{
+    background:var(--paper);
+    padding:32px 26px;
+    display:flex;
+    flex-direction:column;
+  }
+  .service-card .num{
+    font-family:'JetBrains Mono', monospace;
+    font-size:12px;
+    color:var(--teal);
+    margin-bottom:22px;
+  }
+  .service-card h3{
+    font-size:18px;
+    font-weight:700;
+    margin-bottom:12px;
+    line-height:1.3;
+  }
+  .service-card p{
+    font-size:14.5px;
+    color:var(--slate);
+    line-height:1.65;
+    margin:0 0 20px;
+    flex-grow:1;
+  }
+  .service-tags{display:flex; flex-wrap:wrap; gap:6px;}
+  .service-tags span{
+    font-size:12px;
+    padding:4px 10px;
+    background:var(--cream);
+    border:1px solid var(--line);
+    border-radius:20px;
+    color:var(--slate);
+  }
+  .service-flow{
+    display:flex;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:0;
+    border:1px solid var(--line);
+    border-radius:4px;
+    background:var(--paper);
+    padding:22px 26px;
+    margin-bottom:40px;
+  }
+  .service-flow .step{
+    display:flex;
+    align-items:baseline;
+    gap:10px;
+    font-size:14px;
+    color:var(--ink);
+    font-weight:600;
+    padding:6px 18px 6px 0;
+  }
+  .service-flow .step span.step-num{
+    font-family:'JetBrains Mono', monospace;
+    font-size:11.5px;
+    color:var(--orange);
+    font-weight:500;
+  }
+  .service-flow .arrow{color:var(--slate-light); font-size:15px; padding:0 4px;}
+  .service-cta{
+    display:flex; align-items:center; justify-content:space-between;
+    flex-wrap:wrap; gap:20px;
+  }
+  .service-cta p{
+    font-size:15px; color:var(--slate); max-width:44ch; margin:0; line-height:1.6;
+  }
+
+  /* ---------- Updates ---------- */
+  .updates{
+    background:var(--paper);
+    padding:90px 0;
+    border-bottom:1px solid var(--line);
+  }
+  .updates .section-head{margin-bottom:34px;}
+  .update-placeholder{
+    border:1px dashed var(--line);
+    border-radius:4px;
+    padding:40px;
+    background:var(--cream);
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:24px;
+    flex-wrap:wrap;
+  }
+  .update-placeholder p{
+    font-size:15px;
+    color:var(--slate);
+    max-width:46ch;
+    line-height:1.6;
+    margin:0;
+  }
+  .update-placeholder strong{color:var(--ink);}
+
+  /* ---------- Contact ---------- */
+  .contact{
+    background:var(--navy);
+    color:#fff;
+    padding:96px 0;
+  }
+  .contact-grid{
+    display:grid;
+    grid-template-columns:1.3fr 1fr;
+    gap:60px;
+  }
+  .contact h2{
+    font-size:clamp(28px,3.8vw,42px);
+    font-weight:800;
+    max-width:520px;
+    margin-bottom:20px;
+  }
+  .contact p.lead{
+    color:#B7C4CE;
+    font-size:16.5px;
+    line-height:1.65;
+    max-width:480px;
+  }
+  .contact-info{border-left:1px solid var(--line-dark); padding-left:44px;}
+  .info-row{margin-bottom:26px;}
+  .info-row .label{
+    font-family:'JetBrains Mono', monospace;
+    font-size:11.5px;
+    color:var(--teal);
+    text-transform:uppercase;
+    letter-spacing:0.03em;
+    display:block;
+    margin-bottom:6px;
+  }
+  .info-row a, .info-row span.val{
+    font-size:17px;
+    font-weight:600;
+    color:#fff;
+    text-decoration:none;
+  }
+  .info-row a:hover{color:var(--orange);}
+
+  /* ---------- Footer ---------- */
+  footer{
+    background:var(--navy-deep);
+    color:#8393A0;
+    padding:36px 0;
+  }
+  .foot-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:16px;
+    font-size:13px;
+  }
+  .foot-brand{
+    display:flex; align-items:center; gap:8px;
+    color:#fff;
+    font-family:'Sora', sans-serif;
+    font-weight:600;
+    font-size:14px;
+  }
+
+  .foot-links{display:flex; gap:22px; list-style:none; padding:0; margin:0;}
+  .foot-links a{text-decoration:none; color:#8393A0;}
+  .foot-links a:hover{color:#fff;}
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 860px){
+    .navlinks{display:none;}
+    .section-head{grid-template-columns:1fr;}
+    .pillars{grid-template-columns:1fr 1fr;}
+    .product{grid-template-columns:1fr; gap:22px;}
+    .product-meta{position:static;}
+    .service-cards{grid-template-columns:1fr;}
+    .service-cta{flex-direction:column; align-items:flex-start;}
+    .contact-grid{grid-template-columns:1fr;}
+    .contact-info{border-left:none; padding-left:0; border-top:1px solid var(--line-dark); padding-top:34px;}
+  }
+  @media (max-width: 520px){
+    .pillars{grid-template-columns:1fr;}
+    .hero{padding:76px 0 56px;}
+    .about, .products, .services, .updates, .contact{padding:64px 0;}
+    .service-flow{flex-direction:column; align-items:flex-start; gap:4px;}
+    .service-flow .arrow{display:none;}
+    .update-placeholder{padding:26px;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="nav">
+    <a href="#" class="brand">
+      <img src="logo-mark-white.png" alt="" class="brand-mark">
+      STARTBITS
+    </a>
+    <ul class="navlinks">
+      <li><a href="#nosotros">Nosotros</a></li>
+      <li><a href="#productos">Productos</a></li>
+      <li><a href="#servicios">Servicios</a></li>
+      <li><a href="#novedades">Novedades</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+    <a href="#contacto" class="nav-cta">Escríbenos</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Barranquilla, Colombia</div>
+    <h1>Energía estable para los negocios que mueven a Colombia.</h1>
+    <p class="lead">Los picos y las caídas de tensión dañan equipos, detienen operaciones y generan pérdidas todos los días. StartBits diseña y fabrica soluciones eléctricas inteligentes pensadas para la red real de Colombia — no para la de otro país.</p>
+    <div class="hero-ctas">
+      <a href="#productos" class="btn btn-primary">Ver productos</a>
+      <a href="#contacto" class="btn btn-ghost">Hablar con nosotros</a>
+    </div>
+    <svg class="zigzag-divider" viewBox="0 0 520 26" preserveAspectRatio="none">
+      <polyline points="0,20 40,20 65,6 95,20 125,6 155,20 190,20" fill="none" stroke="#F9A33D" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+      <line x1="190" y1="20" x2="520" y2="20" stroke="#3DCFD7" stroke-width="2.5" stroke-linecap="round"/>
+    </svg>
+  </div>
+</section>
+
+<section class="about" id="nosotros">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <span class="mono-label">SOBRE STARTBITS</span>
+        <h2>Hardware y software fabricados donde se usan.</h2>
+      </div>
+      <p class="support">StartBits nace en Barranquilla para resolver un problema concreto: la mayoría de la protección eléctrica que se vende en Colombia fue diseñada para redes eléctricas de otros países. Diseñamos, calibramos y ensamblamos localmente — lo que significa soporte, repuestos y garantía cerca de quien los necesita, y una hoja de ruta de producto que conecta protección, control y gestión en una sola línea. StartBits es una marca de Codesch S.A.S.</p>
+    </div>
+    <div class="pillars">
+      <div class="pillar">
+        <span class="num">01</span>
+        <h3>Diseñado para la red eléctrica colombiana</h3>
+        <p>No es un producto genérico importado y reetiquetado.</p>
+      </div>
+      <div class="pillar">
+        <span class="num">02</span>
+        <h3>Fabricado localmente en Barranquilla</h3>
+        <p>Soporte, repuestos y garantía cerca de ti.</p>
+      </div>
+      <div class="pillar">
+        <span class="num">03</span>
+        <h3>Monitoreo y funciones inteligentes</h3>
+        <p>Integradas en cada dispositivo de la línea.</p>
+      </div>
+      <div class="pillar">
+        <span class="num">04</span>
+        <h3>Manufactura sostenible</h3>
+        <p>Genera empleo local y reduce la huella de transporte.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="products" id="productos">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <span class="mono-label">LÍNEA DE PRODUCTOS</span>
+        <h2>Cuatro productos, una misma idea.</h2>
+      </div>
+      <p class="support">Protección eléctrica, control remoto y gestión — pensados para trabajar juntos. Todos los productos de hardware comparten una misma app; todos están en desarrollo activo en Barranquilla.</p>
+    </div>
+
+    <div class="product-list">
+
+      <!-- StartShield -->
+      <article class="product">
+        <div class="product-meta">
+          <span class="line-tag">PRODUCTO 01 — ENERGÍA</span>
+          <h3>StartShield</h3>
+          <span class="status-pill status-dev">En desarrollo · prototipo de laboratorio</span>
+        </div>
+        <div class="product-body">
+          <p class="tagline">Protege lo que ya invertiste.</p>
+          <p class="desc">Cada pico o caída de tensión es un riesgo silencioso para neveras, computadores, congeladores y equipos de trabajo. En vez de prometer una capacidad de absorción abstracta, StartShield corta el paso de corriente en milisegundos apenas detecta una sobretensión o una baja de tensión.</p>
+          <div class="audience">
+            <span>Restaurantes</span><span>Cafés internet</span><span>Lavanderías</span><span>Tiendas y retail</span><span>Pequeña manufactura</span><span>Hogares</span>
+          </div>
+          <table class="spec-table">
+            <tr><td>Voltaje de entrada</td><td>170–240 Vrms (típico 220V)</td></tr>
+            <tr><td>Tipo de protección</td><td>Sobretensión y baja tensión</td></tr>
+            <tr><td>Tiempo de respuesta</td><td>3 ciclos (60Hz), &lt; 20 ms</td></tr>
+            <tr><td>Formato</td><td>Montaje en pared, 1 toma</td></tr>
+            <tr><td>Certificación</td><td>RETIE en trámite</td></tr>
+          </table>
+          <div class="product-photo">
+            <img src="startshield-prototype.jpg" alt="Prototipo de laboratorio de StartShield conectado a un tomacorriente">
+          </div>
+          <p class="photo-caption">Concepto de producto — prototipo de laboratorio. La unidad final puede variar en acabado.</p>
+        </div>
+      </article>
+
+      <!-- StartByte -->
+      <article class="product">
+        <div class="product-meta">
+          <img src="startbyte-icon.png" alt="Ícono de la app StartByte" class="app-icon">
+          <span class="line-tag">PRODUCTO 02 — CONTROL</span>
+          <h3>StartByte</h3>
+          <span class="status-pill status-dev">En desarrollo · app Android</span>
+        </div>
+        <div class="product-body">
+          <p class="tagline">Controla tus equipos desde cualquier lugar.</p>
+          <p class="desc">Un interruptor inteligente que se conecta por WiFi y se registra en la app de StartBits para que enciendas, apagues y programes cualquier electrodoméstico o equipo sin estar físicamente en el lugar. Es el complemento natural de StartShield: control inteligente además de protección eléctrica.</p>
+          <div class="audience">
+            <span>Negocios con equipos fuera de horario</span><span>Primer paso a la domótica</span><span>Locales con varios puntos de energía</span><span>Administración a distancia</span>
+          </div>
+          <table class="spec-table">
+            <tr><td>Conectividad</td><td>WiFi, vía app StartBits</td></tr>
+            <tr><td>Control</td><td>Cualquier electrodoméstico o equipo</td></tr>
+            <tr><td>Sistema operativo</td><td>Android (iOS próximamente)</td></tr>
+          </table>
+        </div>
+      </article>
+
+      <!-- StartWatt -->
+      <article class="product">
+        <div class="product-meta">
+          <span class="line-tag">PRODUCTO 03 — CONTROL + MEDICIÓN</span>
+          <h3>StartWatt</h3>
+          <span class="status-pill status-dev">En desarrollo</span>
+        </div>
+        <div class="product-body">
+          <p class="tagline">Todo lo de StartByte, más el dato del consumo.</p>
+          <p class="desc">La evolución natural de StartByte: el mismo interruptor inteligente controlado por WiFi, con la función adicional de medir el consumo de energía del equipo conectado en tiempo real. Vive en la misma app StartBits, así que no hay que aprender a usar una herramienta nueva.</p>
+          <div class="audience">
+            <span>Negocios que quieren ver su gasto energético</span><span>Hogares</span><span>Uso comercial</span><span>Usuarios de StartByte</span>
+          </div>
+          <table class="spec-table">
+            <tr><td>Base</td><td>Interruptor WiFi StartByte + medición de consumo</td></tr>
+            <tr><td>App</td><td>Misma app StartBits que StartByte</td></tr>
+            <tr><td>Segmento</td><td>Doméstico, pyme y comercial</td></tr>
+          </table>
+        </div>
+      </article>
+
+      <!-- StartDust -->
+      <article class="product">
+        <div class="product-meta">
+          <span class="line-tag">PRODUCTO 04 — GESTIÓN</span>
+          <h3>StartDust</h3>
+          <span class="status-pill status-dev">En desarrollo · app web</span>
+        </div>
+        <div class="product-body">
+          <p class="tagline">Tu hotel, organizado y bajo control.</p>
+          <p class="desc">Los hoteles boutique, hostales y posadas de la costa Caribe necesitan herramientas simples para administrar reservas, limpieza y ocupación sin depender de sistemas complejos o costosos. StartDust ordena la operación diaria del alojamiento desde un panel web, con integración de hardware StartBits para energía por habitación contemplada en la hoja de ruta.</p>
+          <div class="audience">
+            <span>Hoteles boutique</span><span>Hostales</span><span>Posadas turísticas</span><span>Alojamientos pequeños del Caribe</span>
+          </div>
+          <table class="spec-table">
+            <tr><td>Modelo</td><td>Suscripción mensual o anual por propiedad</td></tr>
+            <tr><td>Plataforma</td><td>Aplicación web (app móvil en desarrollo)</td></tr>
+            <tr><td>Integración con hardware</td><td>Planeada</td></tr>
+          </table>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section class="services" id="servicios">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <span class="mono-label">SERVICIOS</span>
+        <h2>También diseñamos para otras empresas.</h2>
+      </div>
+      <p class="support">Detrás de cada producto StartBits hay un equipo que diseña electrónica, firmware y software desde cero. Ese mismo equipo está disponible para desarrollar soluciones a la medida de tu empresa — desde una idea en papel hasta un dispositivo funcionando en campo.</p>
+    </div>
+
+    <div class="service-cards">
+      <div class="service-card">
+        <span class="num">01</span>
+        <h3>Diseño de hardware y PCB</h3>
+        <p>Diseño de circuitos y placas (PCB) desde el esquemático hasta el prototipo funcional: selección de componentes, layout, pruebas de validación y preparación para manufactura.</p>
+        <div class="service-tags">
+          <span>Esquemáticos</span><span>Layout de PCB</span><span>Prototipado</span><span>DFM</span>
+        </div>
+      </div>
+      <div class="service-card">
+        <span class="num">02</span>
+        <h3>Conectividad e IoT</h3>
+        <p>Integración de WiFi, Bluetooth y otros protocolos para conectar un dispositivo físico a una app o a la nube, con una arquitectura pensada para escalar de un prototipo a producción.</p>
+        <div class="service-tags">
+          <span>WiFi / BLE</span><span>Firmware</span><span>Nube e integraciones</span>
+        </div>
+      </div>
+      <div class="service-card">
+        <span class="num">03</span>
+        <h3>Software y aplicaciones</h3>
+        <p>Aplicaciones móviles y web, paneles de control y soporte de software continuo — como complemento de un producto de hardware, o como desarrollo independiente.</p>
+        <div class="service-tags">
+          <span>Apps móviles</span><span>Paneles web</span><span>Soporte continuo</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="service-flow">
+      <div class="step"><span class="step-num">01</span>Idea y alcance</div>
+      <span class="arrow">→</span>
+      <div class="step"><span class="step-num">02</span>Diseño de hardware / software</div>
+      <span class="arrow">→</span>
+      <div class="step"><span class="step-num">03</span>Prototipo funcional</div>
+      <span class="arrow">→</span>
+      <div class="step"><span class="step-num">04</span>Producción y soporte</div>
+    </div>
+
+    <div class="service-cta">
+      <p>¿Tienes una idea de hardware, una app que necesita construirse, o un producto que necesita conectividad? Hablemos de tu proyecto.</p>
+      <a href="#contacto" class="btn btn-primary">Cuéntanos tu proyecto</a>
+    </div>
+  </div>
+</section>
+
+<section class="updates" id="novedades">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <span class="mono-label">NOVEDADES</span>
+        <h2>Estamos construyendo en público.</h2>
+      </div>
+      <p class="support">Avances de producto, hitos de certificación y noticias de la compañía — a medida que StartBits avance de prototipo a producción, este espacio se irá llenando.</p>
+    </div>
+    <div class="update-placeholder">
+      <p><strong>Aún no hay publicaciones.</strong> Escríbenos a info@startbits.co si quieres que te avisemos apenas haya novedades de StartShield o del resto de la línea.</p>
+      <a href="#contacto" class="btn btn-primary" style="white-space:nowrap;">Mantenerme al tanto</a>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contacto">
+  <div class="wrap">
+    <div class="contact-grid">
+      <div>
+        <span class="mono-label">HABLEMOS</span>
+        <h2>Construyamos, juntos, una energía más estable.</h2>
+        <p class="lead">Si tienes un negocio en Barranquilla y quieres ser de los primeros en probar StartShield, o si te interesa StartByte, StartWatt o StartDust para tu operación, escríbenos.</p>
+      </div>
+      <div class="contact-info">
+        <div class="info-row">
+          <span class="label">Correo</span>
+          <a href="mailto:info@startbits.co">info@startbits.co</a>
+        </div>
+        <div class="info-row">
+          <span class="label">Teléfono / WhatsApp</span>
+          <a href="https://wa.me/573017949224">+57 301 794 9224</a>
+        </div>
+        <div class="info-row">
+          <span class="label">Ciudad</span>
+          <span class="val">Barranquilla, Colombia</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot-row">
+    <div class="foot-brand">
+      <img src="logo-mark-white.png" alt="" class="brand-mark" style="width:18px;height:18px;">
+      STARTBITS
+    </div>
+    <ul class="foot-links">
+      <li><a href="#nosotros">Nosotros</a></li>
+      <li><a href="#productos">Productos</a></li>
+      <li><a href="#servicios">Servicios</a></li>
+      <li><a href="#novedades">Novedades</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+    <span>© 2026 StartBits — una marca de Codesch S.A.S.</span>
+  </div>
+</footer>
+
+</body>
+</html>
