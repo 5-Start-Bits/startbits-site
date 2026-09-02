@@ -4,7 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>StartBits — Energía estable para los negocios que mueven a Colombia</title>
-<link rel="icon" type="image/png" href="logo-mark-gold.png">
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="favicon-180.png">
 <meta name="description" content="StartBits diseña y fabrica en Barranquilla soluciones eléctricas inteligentes pensadas para la red real de Colombia: StartShield, StartByte, StartWatt y StartDust.">
 
 <meta property="og:title" content="StartBits — Energía estable para los negocios que mueven a Colombia">
@@ -451,8 +454,9 @@
     line-height:1.65;
     max-width:480px;
   }
-  .contact-info{border-left:1px solid var(--line-dark); padding-left:44px;}
-  .info-row{margin-bottom:26px;}
+  .contact-info{margin-top:38px; padding-top:30px; border-top:1px solid var(--line-dark);}
+  .info-row{margin-bottom:22px;}
+  .info-row:last-child{margin-bottom:0;}
   .info-row .label{
     font-family:'JetBrains Mono', monospace;
     font-size:11.5px;
@@ -469,6 +473,63 @@
     text-decoration:none;
   }
   .info-row a:hover{color:var(--orange);}
+
+  .contact-form-wrap{
+    background:rgba(255,255,255,0.04);
+    border:1px solid var(--line-dark);
+    border-radius:6px;
+    padding:34px;
+  }
+  .contact-form .form-row{margin-bottom:18px;}
+  .contact-form label{
+    display:block;
+    font-size:12.5px;
+    font-family:'JetBrains Mono', monospace;
+    color:var(--teal);
+    text-transform:uppercase;
+    letter-spacing:0.03em;
+    margin-bottom:8px;
+  }
+  .contact-form input,
+  .contact-form select,
+  .contact-form textarea{
+    width:100%;
+    background:rgba(255,255,255,0.06);
+    border:1px solid rgba(255,255,255,0.18);
+    border-radius:3px;
+    padding:11px 13px;
+    font-family:'Inter', sans-serif;
+    font-size:14.5px;
+    color:#fff;
+  }
+  .contact-form select{
+    color:#fff;
+  }
+  .contact-form select option{color:#14202C;}
+  .contact-form input:focus,
+  .contact-form select:focus,
+  .contact-form textarea:focus{
+    outline:none;
+    border-color:var(--teal);
+  }
+  .contact-form textarea{resize:vertical; min-height:96px;}
+  .contact-form input::placeholder,
+  .contact-form textarea::placeholder{color:rgba(255,255,255,0.4);}
+  .form-submit{
+    width:100%;
+    justify-content:center;
+    border:none;
+    cursor:pointer;
+    font-family:'Inter', sans-serif;
+  }
+  .form-submit[disabled]{opacity:0.6; cursor:default;}
+  .form-status{
+    margin:14px 0 0;
+    font-size:13.5px;
+    min-height:18px;
+  }
+  .form-status.success{color:var(--teal);}
+  .form-status.error{color:#F58B8B;}
 
   /* ---------- Footer ---------- */
   footer{
@@ -506,7 +567,7 @@
     .service-cards{grid-template-columns:1fr;}
     .service-cta{flex-direction:column; align-items:flex-start;}
     .contact-grid{grid-template-columns:1fr;}
-    .contact-info{border-left:none; padding-left:0; border-top:1px solid var(--line-dark); padding-top:34px;}
+    .contact-form-wrap{padding:26px;}
   }
   @media (max-width: 520px){
     .pillars{grid-template-columns:1fr;}
@@ -770,21 +831,52 @@
       <div>
         <span class="mono-label">HABLEMOS</span>
         <h2>Construyamos, juntos, una energía más estable.</h2>
-        <p class="lead">Si tienes un negocio en Barranquilla y quieres ser de los primeros en probar StartShield, o si te interesa StartByte, StartWatt o StartDust para tu operación, escríbenos.</p>
+        <p class="lead">Si tienes un negocio en Barranquilla y quieres ser de los primeros en probar StartShield, o si te interesa StartByte, StartWatt, StartDust o nuestros servicios de diseño, escríbenos.</p>
+        <div class="contact-info">
+          <div class="info-row">
+            <span class="label">Correo</span>
+            <a href="mailto:info@startbits.co">info@startbits.co</a>
+          </div>
+          <div class="info-row">
+            <span class="label">Teléfono / WhatsApp</span>
+            <a href="https://wa.me/573017949224">+57 301 794 9224</a>
+          </div>
+          <div class="info-row">
+            <span class="label">Ciudad</span>
+            <span class="val">Barranquilla, Colombia</span>
+          </div>
+        </div>
       </div>
-      <div class="contact-info">
-        <div class="info-row">
-          <span class="label">Correo</span>
-          <a href="mailto:info@startbits.co">info@startbits.co</a>
-        </div>
-        <div class="info-row">
-          <span class="label">Teléfono / WhatsApp</span>
-          <a href="https://wa.me/573017949224">+57 301 794 9224</a>
-        </div>
-        <div class="info-row">
-          <span class="label">Ciudad</span>
-          <span class="val">Barranquilla, Colombia</span>
-        </div>
+
+      <div class="contact-form-wrap">
+        <form id="contact-form" class="contact-form" action="https://formspree.io/f/xoeqwwvj" method="POST">
+          <div class="form-row">
+            <label for="cf-name">Nombre</label>
+            <input type="text" id="cf-name" name="name" required autocomplete="name">
+          </div>
+          <div class="form-row">
+            <label for="cf-email">Correo</label>
+            <input type="email" id="cf-email" name="email" required autocomplete="email">
+          </div>
+          <div class="form-row">
+            <label for="cf-topic">Me interesa</label>
+            <select id="cf-topic" name="topic">
+              <option value="StartShield">StartShield</option>
+              <option value="StartByte">StartByte</option>
+              <option value="StartWatt">StartWatt</option>
+              <option value="StartDust">StartDust</option>
+              <option value="Servicios de diseño">Servicios de diseño</option>
+              <option value="Otro">Otro</option>
+            </select>
+          </div>
+          <div class="form-row">
+            <label for="cf-message">Mensaje</label>
+            <textarea id="cf-message" name="message" rows="4" required></textarea>
+          </div>
+          <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+          <button type="submit" class="btn btn-primary form-submit">Enviar mensaje</button>
+          <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+        </form>
       </div>
     </div>
   </div>
@@ -806,6 +898,45 @@
     <span>© 2026 StartBits — una marca de Codesch S.A.S.</span>
   </div>
 </footer>
+
+<script>
+  const form = document.getElementById('contact-form');
+  const status = document.getElementById('form-status');
+  if (form) {
+    form.addEventListener('submit', async function (e) {
+      e.preventDefault();
+      const btn = form.querySelector('.form-submit');
+      btn.disabled = true;
+      btn.textContent = 'Enviando…';
+      status.className = 'form-status';
+      status.textContent = '';
+
+      try {
+        const res = await fetch(form.action, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: { 'Accept': 'application/json' }
+        });
+        if (res.ok) {
+          status.textContent = '¡Gracias! Tu mensaje fue enviado — te responderemos pronto.';
+          status.className = 'form-status success';
+          form.reset();
+        } else {
+          const data = await res.json().catch(() => null);
+          const msg = data && data.errors ? data.errors.map(x => x.message).join(', ') : null;
+          status.textContent = msg || 'No pudimos enviar tu mensaje. Intenta de nuevo o escríbenos a info@startbits.co.';
+          status.className = 'form-status error';
+        }
+      } catch (err) {
+        status.textContent = 'No pudimos enviar tu mensaje. Intenta de nuevo o escríbenos a info@startbits.co.';
+        status.className = 'form-status error';
+      } finally {
+        btn.disabled = false;
+        btn.textContent = 'Enviar mensaje';
+      }
+    });
+  }
+</script>
 
 </body>
 </html>
